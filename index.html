@@ -157,98 +157,94 @@
 
 	
 	<script>
-		$(document).ready(function () {
-			let jsonData = []; // Variable untuk menyimpan data JSON
-			let itemsPerLoad = 20; // Jumlah item yang ditampilkan setiap load
-			let currentIndex = 0; // Index data yang sedang ditampilkan
+	$(document).ready(function () {
+		let jsonData = [];
+		let itemsPerLoad = 20;
+		let currentIndex = 0;
 
-			// Fungsi untuk membuat efek skeleton
-			function createSkeleton(count) {
-				let skeleton = '';
-				for (let i = 0; i < count; i++) {
-					skeleton += `
-					<div class="col-xl-3 col-lg-4 col-md-6 mb-4 skeleton">
-						<div class="bg-white rounded shadow-sm">
-							<div class="example-image-link skeleton-image"></div>
-							<div class="p-4">
-								<h5><div class="skeleton-text skeleton-title"></div></h5>
-								<div class="small text-muted mb-0">
-									<ul>
-										<li><div class="skeleton-text"></div></li>
-										<li><div class="skeleton-text"></div></li>
-										<li><div class="skeleton-text"></div></li>
-									</ul>
-								</div>
-								<div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-									<div class="skeleton-text skeleton-price"></div>
-								</div>
+		function createSkeleton(count) {
+			let skeleton = '';
+			for (let i = 0; i < count; i++) {
+				skeleton += `
+				<div class="col-xl-3 col-lg-4 col-md-6 mb-4 skeleton">
+					<div class="bg-white rounded shadow-sm">
+						<div class="skeleton-image"></div>
+						<div class="p-4">
+							<h5><div class="skeleton-text skeleton-title"></div></h5>
+							<div class="small text-muted mb-0">
+								<ul>
+									<li><div class="skeleton-text"></div></li>
+									<li><div class="skeleton-text"></div></li>
+									<li><div class="skeleton-text"></div></li>
+								</ul>
+							</div>
+							<div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+								<div class="skeleton-text skeleton-price"></div>
 							</div>
 						</div>
-					</div>`;
-				}
-				return skeleton;
+					</div>
+				</div>`;
 			}
+			return skeleton;
+		}
 
-			// Fungsi untuk menampilkan data dari JSON
-			function appendData(startIndex) {
-				const endIndex = startIndex + itemsPerLoad;
-				const itemsToLoad = jsonData.slice(startIndex, endIndex);
+		function appendData(startIndex) {
+			const endIndex = startIndex + itemsPerLoad;
+			const itemsToLoad = jsonData.slice(startIndex, endIndex);
 
-				let htmlContent = '';
-				itemsToLoad.forEach(item => {
-					htmlContent += `
-					<div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-						<div class="bg-white rounded shadow-sm">
-							<a class="example-image-link" href="${item.gambar_blanko}" data-lightbox="${item.nama_blanko}">
-								<img class="img-fluid card-img-top example-image" src="${item.gambar_blanko}" alt="${item.nama_blanko}" />
-							</a>
-							<div class="p-4">
-								<h5>
-									<a href="#" class="text-dark">${item.nama_blanko}</a>
-								</h5>
-								<div class="small text-muted mb-0">
-									<ul>
-										<li>Harga tertera untuk 1 pcs</li>
-										<li>Minimum Order 100 pcs kelipatan 50, contoh 100, 150, 200, 250, dst</li>
-										<li>Harga sudah termasuk plastik OPP dan label nama</li>
-									</ul>
-								</div>
-								<div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-									<p class="small mb-0">
-										<i class="fa fa-picture-o mr-2"></i>
-										<span class="font-weight-bold">${item.harga_blanko}</span>
-									</p>
-									<div class="badge badge-danger px-3 rounded-pill font-weight-normal">New</div>
-								</div>
+			let htmlContent = '';
+			itemsToLoad.forEach(item => {
+				htmlContent += `
+				<div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+					<div class="bg-white rounded shadow-sm">
+						<a class="example-image-link" href="${item.gambar_blanko}" data-lightbox="${item.nama_blanko}">
+							<img class="img-fluid card-img-top example-image" src="${item.gambar_blanko}" alt="${item.nama_blanko}" />
+						</a>
+						<div class="p-4">
+							<h5>
+								<a href="#" class="text-dark">${item.nama_blanko}</a>
+							</h5>
+							<div class="small text-muted mb-0">
+								<ul>
+									<li>Harga tertera untuk 1 pcs</li>
+									<li>Minimum Order 100 pcs kelipatan 50, contoh 100, 150, 200, 250, dst</li>
+									<li>Harga sudah termasuk plastik OPP dan label nama</li>
+								</ul>
+							</div>
+							<div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+								<p class="small mb-0">
+									<i class="fa fa-picture-o mr-2"></i>
+									<span class="font-weight-bold">${item.harga_blanko}</span>
+								</p>
+								<div class="badge badge-danger px-3 rounded-pill font-weight-normal">New</div>
 							</div>
 						</div>
-					</div>`;
-				});
-
-				setTimeout(() => {
-					$('#div-blanko .skeleton').remove(); // Menghapus skeleton
-					$('#div-blanko').append(htmlContent); // Menambahkan data asli
-					currentIndex = endIndex; // Update index data terakhir
-				}, 1000); // Simulasi delay loading
-			}
-
-			// Event scroll untuk load data berikutnya
-			$(window).on('scroll', function () {
-				if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
-					if (currentIndex < jsonData.length) {
-						$('#div-blanko').append(createSkeleton(itemsPerLoad)); // Tambah skeleton
-						appendData(currentIndex); // Load data baru
-					}
-				}
+					</div>
+				</div>`;
 			});
 
-			// Load JSON data
-			$.getJSON('list-blanko.json', function (data) {
-				jsonData = data; // Simpan data JSON
-				$('#div-blanko').append(createSkeleton(itemsPerLoad)); // Tambahkan skeleton awal
-				appendData(0); // Load data pertama
-			});
+			setTimeout(() => {
+				$('#div-blanko .skeleton').remove();
+				$('#div-blanko').append(htmlContent);
+				currentIndex = endIndex;
+			}, 1000);
+		}
+
+		$.getJSON('list-blanko.json', function (data) {
+			jsonData = data;
+			$('#div-blanko').append(createSkeleton(itemsPerLoad));
+			appendData(0);
 		});
+
+		$(window).on('scroll', function () {
+			if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
+				if (currentIndex < jsonData.length) {
+					$('#div-blanko').append(createSkeleton(itemsPerLoad));
+					appendData(currentIndex);
+				}
+			}
+		});
+	});
 	</script>
 	
 </body>
