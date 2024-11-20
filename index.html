@@ -76,19 +76,27 @@
 	
 	
 	.skeleton {
-		animation: shimmer 1.5s infinite linear;
+		background: linear-gradient(
+			90deg,
+			#ddd 25%,
+			#e0e0e0 50%,
+			#ddd 75%
+		);
+		background-size: 200% 100%;
+		animation: shimmer 1.5s infinite;
 	}
 
 	.skeleton-image {
 		height: 200px;
+		border-radius: 4px;
 		background: #ddd;
 	}
 
 	.skeleton-text {
 		height: 15px;
-		background: #ddd;
 		margin-bottom: 10px;
 		border-radius: 4px;
+		background: #ddd;
 	}
 
 	.skeleton-title {
@@ -101,10 +109,10 @@
 
 	@keyframes shimmer {
 		0% {
-			background-position: -200px 0;
+			background-position: -200% 0;
 		}
 		100% {
-			background-position: 200px 0;
+			background-position: 200% 0;
 		}
 	}
 
