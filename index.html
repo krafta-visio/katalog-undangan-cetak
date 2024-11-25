@@ -38,40 +38,6 @@
 	}
 	
 	
-	//preloader
-	.preloader {
-		z-index: 99999;
-	}
-
-	.path-heart {
-		animation: 1.11111s linear -0.833333s infinite normal forwards running heart-anim;
-		transform: scale(0.91);
-		transform-origin: 30px 30px
-	}
-
-	.path-heart-sm {
-		animation: 1.11111s linear -1.11111s infinite normal forwards running heart-anim;
-		transform: scale(1.91);
-		transform-origin: 10px 10px
-	}
-
-	@keyframes heart-anim {
-		0% {
-			animation-timing-function: cubic-bezier(0.9647, 0.2413, -0.0705, 0.7911);
-			transform: scale(0.91)
-		}
-
-		51% {
-			animation-timing-function: cubic-bezier(0.9226, 0.2631, -0.0308, 0.7628);
-			transform: scale(1.02994)
-		}
-
-		100% {
-			transform: scale(0.91)
-		}
-	}
-
-	
 	
 	
 	// <uniquifier>: Use a unique and descriptive class name
@@ -150,30 +116,6 @@
 
 <body>
 
-	<!-- Preloader Start -->
-	<div id='preloader' class="preloader bg-dark  h-100 position-fixed w-100">
-		<svg width="100px" height="128px" viewBox="0 0 100 100" y="0px" x="0px" class="position-absolute start-50 top-50 translate-middle">
-			<defs><style>.path-heart { fill: #f8f4e6; } .path-heart-sm { fill: #f8bb15; }</style></defs>
-			<path class="path-heart" d="M54.17,3.78h0L51.5.28a.71.71,0,0,0-1.13,0L47.92,3.5a.72.72,0,0,1-.56.28H0V8.92H44.11a.72.72,0,0,0,.56-.28L47.47,5A.71.71,0,0,1,48.6,5l2.8,3.69a.73.73,0,0,0,.56.28H72.89l4-5.14Z" transform="translate(0 0)" />
-			<path class="path-heart" d="M36.65,18.89l2.81-3.68a.7.7,0,0,1,1.12,0c.83,1.08,2.22,2.91,2.8,3.68a.72.72,0,0,0,.57.28H65L69,14H46.14l-2.66-3.5a.7.7,0,0,0-1.12,0l-2.45,3.22a.7.7,0,0,1-.56.28H0v5.14H36.09A.69.69,0,0,0,36.65,18.89Z" transform="translate(0 0)" />
-			<path class="path-heart" d="M28.92,29.15l2.8-3.68a.7.7,0,0,1,1.12,0l2.81,3.69a.72.72,0,0,0,.56.28H57.09l4-5.14H38.41l-2.66-3.5a.71.71,0,0,0-1.13,0L32.17,24a.72.72,0,0,1-.56.28H0v5.14H28.35A.74.74,0,0,0,28.92,29.15Z" transform="translate(0 0)" />
-			<path class="path-heart" d="M21.06,39.4l2.8-3.68a.7.7,0,0,1,1.12,0l2.81,3.68a.69.69,0,0,0,.56.28H49.23v0l3.94-5.12H30.55L27.88,31a.7.7,0,0,0-1.12,0l-2.45,3.22a.69.69,0,0,1-.56.28H0v5.14H20.49A.72.72,0,0,0,21.06,39.4Z" transform="translate(0 0)" />
-			<path class="path-heart" d="M27.73,49.66,30.54,46a.7.7,0,0,1,1.12,0l2.8,3.68a.75.75,0,0,0,.57.28H56.2L52.71,44.8H31.77a.73.73,0,0,1-.56-.28L28.76,41.3a.7.7,0,0,0-1.12,0L25,44.8H0v5.14H27.17A.69.69,0,0,0,27.73,49.66Z" transform="translate(0 0)" />
-			<path class="path-heart" d="M34.63,59.91l2.81-3.68a.7.7,0,0,1,1.12,0l2.8,3.68a.71.71,0,0,0,.57.28H63.17l-3.49-5.14h-21a.69.69,0,0,1-.56-.28l-2.45-3.22a.71.71,0,0,0-1.13,0l-2.66,3.5H0v5.14H34.07A.69.69,0,0,0,34.63,59.91Z" transform="translate(0 0)" />
-			<path class="path-heart" d="M45.75,65.31a.73.73,0,0,1-.56-.28l-2.45-3.22a.7.7,0,0,0-1.12,0L39,65.31H0v5.14H41.16a.7.7,0,0,0,.56-.28l2.8-3.69a.71.71,0,0,1,1.13,0l2.8,3.68a.72.72,0,0,0,.56.28H70.13l-3.49-5.14Z" transform="translate(0 0)" />
-			<path class="path-heart" d="M48.71,80.42l2.8-3.68a.71.71,0,0,1,1.13,0l2.8,3.68a.69.69,0,0,0,.56.28H77.1l-3.49-5.14H52.75a.69.69,0,0,1-.56-.28l-2.45-3.22a.71.71,0,0,0-1.13,0L46,75.56H0V80.7H48.15A.7.7,0,0,0,48.71,80.42Z" transform="translate(0 0)" />
-			<polygon class="path-heart-sm" points="9.3 90.52 5.21 95.76 3.56 95.76 3.56 85.84 0 85.84 0 104.56 3.56 104.56 3.56 99.31 5.21 99.31 9.3 104.56 13.82 104.56 8.34 97.55 13.82 90.52 9.3 90.52" />
-			<path class="path-heart-sm" d="M19.33,92.07V90.52H15.77v14h3.56V96.77a2.84,2.84,0,0,1,.8-2A2.54,2.54,0,0,1,22,94h2.35V90.52H23.05A5.19,5.19,0,0,0,19.33,92.07Z" transform="translate(0 0)" />
-			<path class="path-heart-sm" d="M39.36,104.56v-14H35.77v2A3.8,3.8,0,0,0,33.9,91a6.32,6.32,0,0,0-2.27-.45,5.72,5.72,0,0,0-4.52,2.06,7.77,7.77,0,0,0,0,9.92,5.75,5.75,0,0,0,4.52,2.06,5.86,5.86,0,0,0,2.21-.45,4.55,4.55,0,0,0,1.93-1.48v1.93ZM34.77,100a3.38,3.38,0,0,1-4.86,0,3.39,3.39,0,0,1,0-4.87A3.44,3.44,0,0,1,34.77,100Z" transform="translate(0 0)" />
-			<path class="path-heart-sm" d="M47.46,90a2.37,2.37,0,0,1,2.35-2.35h2.77V84.09H49.81A5.92,5.92,0,0,0,43.91,90v.51h-2.8v3.56h2.8v9a2.55,2.55,0,0,1-.74,1.8,2.49,2.49,0,0,1-1.78.74h-2v3.56h2a6.08,6.08,0,0,0,6.07-6.1v-9h3.4V90.51h-3.4Z" transform="translate(0 0)" />
-			<path class="path-heart-sm" d="M59.45,104.85a2.5,2.5,0,0,1-.73-1.8v-9h3.61V90.51H58.72V87.65H55.16v2.86H52.58v3.56h2.58v9a6.08,6.08,0,0,0,6.07,6.1h2.1v-3.56h-2.1A2.49,2.49,0,0,1,59.45,104.85Z" transform="translate(0 0)" />
-			<path class="path-heart-sm" d="M73.78,92.5A3.8,3.8,0,0,0,71.91,91a6.32,6.32,0,0,0-2.27-.45,5.72,5.72,0,0,0-4.52,2.06,7.77,7.77,0,0,0,0,9.92,5.75,5.75,0,0,0,4.52,2.06,5.86,5.86,0,0,0,2.21-.45,4.55,4.55,0,0,0,1.93-1.48v1.93h3.59v-14H73.78Zm-1,7.47a3.38,3.38,0,0,1-4.86,0,3.39,3.39,0,0,1,0-4.87A3.44,3.44,0,0,1,72.78,100Z" transform="translate(0 0)" />
-			<rect class="path-heart-sm" x="79.92" y="99.44" width="5.11" height="5.11" />
-		</svg>
-	</div>
-	<!-- Preloader End -->
-
-
 	<div class="container-fluid">
 	
 		<div class="px-lg-5">
@@ -207,10 +149,6 @@
 
 	
 	<script>
-	
-
-
-	
 		$(document).ready(function () {
 			let jsonData = []; // Variable untuk menyimpan data JSON
 			let itemsPerLoad = 20; // Jumlah item yang ditampilkan setiap load
